@@ -20,10 +20,7 @@ class Tweets {
             .then(data => this.loadData = data.txs.sort((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)))
 
         this.node = await Ipfs.create({
-            repo: 'ipfs-' + Math.random(),
-            init: {
-                alogorithm: 'ed25519'
-            }
+            repo: 'ipfs-' + Math.random()
         })
     }
 
