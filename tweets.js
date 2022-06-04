@@ -33,7 +33,6 @@ class Tweets {
                 this.tweets.push(new TextDecoder().decode(data))
             }
 
-
             // await fetch('https://ipfs.io/ipfs/' + el.tx.value.msg[0].value.links[0].to)
             //     .then(response => response.text())
             //     .then(data => this.tweets.push(data))
