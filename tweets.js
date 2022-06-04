@@ -21,6 +21,7 @@ class Tweets {
 
         this.node = await Ipfs.create({
             repo: String(Math.random() + Date.now()),
+            init: { alogorithm: 'ed25519' }
         })
     }
 
@@ -29,7 +30,7 @@ class Tweets {
 
         for (const el of this.loadData) {
             for await (const data of this.node.cat(el.tx.value.msg[0].value.links[0].to)) {
-                console.log(data)
+                this.tweets.push(new TextDecoder().decode(data))
             }
 
 
