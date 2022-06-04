@@ -29,7 +29,7 @@ class Tweets {
 
         for (const el of this.loadData) {
             for await (const data of this.node.cat(el.tx.value.msg[0].value.links[0].to)) {
-                console.log(data.toString())
+                console.log(data)
             }
 
 
