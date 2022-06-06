@@ -32,22 +32,22 @@ class Tweets {
             EXPERIMENTAL: {
                 pubsub: true,
             },
-            config: {
-                Addresses: {
-                    Swarm: [
-                        // '/dns4/star.thedisco.zone/tcp/9090/wss/p2p-webrtc-star',
-                        // '/dns6/star.thedisco.zone/tcp/9090/wss/p2p-webrtc-star',
-                        '/dns4/ws-star.discovery.cybernode.ai/tcp/443/wss/p2p-webrtc-star',
-                        // '/dns4/ws-star.discovery.cybernode.ai/tcp/4430/wss/p2p/QmUgmRxoLtGERot7Y6G7UyF6fwvnusQZfGR15PuE6pY3aB',
-                    ],
-                },
-                Bootstrap: [
-                    // '/dns4/ws-star.discovery.cybernode.ai/tcp/4430/p2p/QmUgmRxoLtGERot7Y6G7UyF6fwvnusQZfGR15PuE6pY3aB',
-                    `/dns4/ws-star.discovery.cybernode.ai/tcp/4430/wss/p2p/${this.particleFrom}`,
-                    // '/dns6/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt',
-                    // '/dns4/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt',
-                ],
-            }
+            // config: {
+            //     Addresses: {
+            //         Swarm: [
+            //             // '/dns4/star.thedisco.zone/tcp/9090/wss/p2p-webrtc-star',
+            //             // '/dns6/star.thedisco.zone/tcp/9090/wss/p2p-webrtc-star',
+            //             '/dns4/ws-star.discovery.cybernode.ai/tcp/443/wss/p2p-webrtc-star',
+            //             // '/dns4/ws-star.discovery.cybernode.ai/tcp/4430/wss/p2p/QmUgmRxoLtGERot7Y6G7UyF6fwvnusQZfGR15PuE6pY3aB',
+            //         ],
+            //     },
+            //     Bootstrap: [
+            //         // '/dns4/ws-star.discovery.cybernode.ai/tcp/4430/p2p/QmUgmRxoLtGERot7Y6G7UyF6fwvnusQZfGR15PuE6pY3aB',
+            //         `/dns4/ws-star.discovery.cybernode.ai/tcp/4430/wss/p2p/${this.particleFrom}`,
+            //         // '/dns6/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt',
+            //         // '/dns4/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt',
+            //     ],
+            // }
         })
     }
 
