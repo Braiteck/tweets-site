@@ -54,12 +54,6 @@ class Tweets {
     async parseTweets() {
         await this.loadTweets()
 
-        const responseDag = await this.node.dag.get(this.neuron, {
-            localResolve: false,
-        })
-
-        console.log(responseDag.value)
-
         for (const el of this.loadData) {
             let cid = el.tx.value.msg[0].value.links[0].to
 
