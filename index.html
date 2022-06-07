@@ -47,12 +47,12 @@
 
 		<script src="./tweets.js"></script>
 
-		<script>
+		<!-- <script>
 			let tweets = new Tweets(),
 				html = ''
 
 			tweets.all.then(data => {
-				data.forEach(el => html += '<div class="item">'+ marked.parse(el) +'</div>')
+				data.forEach(el => html += '<div class="item">'+ el.date +'<br> '+ marked.parse(el.text) +'</div>')
 
 				let tweetsEl = document.getElementById('tweets').querySelector('.row')
 
@@ -60,6 +60,6 @@
 					tweetsEl.innerHTML = html
 				}
 			})
-		</script>
+		</script> -->
 	</body>
 </html>

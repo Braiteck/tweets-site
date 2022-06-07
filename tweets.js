@@ -6,13 +6,14 @@ class Tweets {
     loadData = []
     tweets = []
     node = {}
+    html = ''
 
-    get all() {
-        return (async () => {
-            await this.parseTweets()
-            return this.tweets
-        })()
-    }
+    // get all() {
+    //     return (async () => {
+    //         await this.parseTweets()
+    //         return this.tweets
+    //     })()
+    // }
 
     async loadTweets() {
         await fetch(this.loadURL)
@@ -55,10 +56,26 @@ class Tweets {
         await this.loadTweets()
 
         for (const el of this.loadData) {
-            let cid = el.tx.value.msg[0].value.links[0].to
+            let cid = el.tx.value.msg[0].value.links[0].to,
+                time = new Date(el.timestamp).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                })
 
-            for await (const data of this.node.cat(cid)) {
-                this.tweets.push(new TextDecoder().decode(data))
+            for await (const text of await all(this.node.cat(cid))) {
+                this.tweets.push({
+                    date: time,
+                    text: new TextDecoder().decode(text)
+                })
+
+                // this.tweets.forEach(el => this.html += '<div class="item">' + el.date + '<br> ' + marked.parse(el.text) + '</div>')
+
+                let tweetsEl = document.getElementById('tweets').querySelector('.row')
+
+                if (tweetsEl) {
+                    tweetsEl.innerHTML += '<div class="item">' + time + '<br> ' + marked.parse(new TextDecoder().decode(text)) + '</div>'
+                }
             }
 
             // await fetch('https://ipfs.io/ipfs/' + el.tx.value.msg[0].value.links[0].to)
@@ -67,3 +84,21 @@ class Tweets {
         }
     }
 }
+
+
+
+const all = async source => {
+    const arr = []
+
+    for await (const entry of source) {
+        arr.push(entry)
+    }
+
+    return arr
+}
+
+
+
+let tweets = new Tweets()
+
+tweets.parseTweets()
